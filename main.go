@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 
+	user "github.com/ALTA-BE10-DIFA/API2/controller"
+	mysql "github.com/ALTA-BE10-DIFA/API2/database"
 	"github.com/labstack/echo/v4"
 )
 

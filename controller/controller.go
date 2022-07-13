@@ -5,8 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"api2.go/model"
-	"github.com/labstack/echo"
+	"github.com/ALTA-BE10-DIFA/API2/model"
 	"github.com/labstack/echo/v4"
 	"gorm.io/gorm"
 )
@@ -56,7 +55,7 @@ func (uc *UserController) GetSpecificUser() echo.HandlerFunc {
 }
 
 func (uc *UserController) CreateUser() echo.HandlerFunc {
-	return func(c echo.Contex) error {
+	return func(c echo.Context) error {
 		var tmp model.User
 		err := c.Bind(&tmp)
 		if err != nil {
@@ -103,7 +102,7 @@ func (uc *UserController) UpdateUser() echo.HandlerFunc {
 		}
 
 		var ret model.User
-		err = uc.DB.Model(&ret).Where("ID = ?", cnv).Update(qry).Error
+		err = uc.DB.Model(&ret).Where("ID = ?", cnv).Updates(qry).Error
 		if err != nil {
 			log.Println("Cannot update data", err.Error())
 			return c.JSON(http.StatusInternalServerError, "cannot Update")

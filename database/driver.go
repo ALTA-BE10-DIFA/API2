@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"API2/model"
+	"github.com/ALTA-BE10-DIFA/API2/model"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -22,5 +22,5 @@ func InitDB() *gorm.DB {
 }
 
 func MigrateData(db *gorm.DB) {
-	db.AutoMigrate(model.User{}, model.Book{})
+	db.AutoMigrate(model.User{})
 }

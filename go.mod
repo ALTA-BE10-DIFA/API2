@@ -1,4 +1,4 @@
-module api2.go
+module github.com/ALTA-BE10-DIFA/API2
 
 go 1.17
 
